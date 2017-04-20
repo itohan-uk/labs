@@ -103,7 +103,7 @@ def bEuler(xPrime, xPara, h):
 def rk4Notime(xPrime, xPara, h):
 	slopeList = []
 	nDependent = len(xPrime)
-	#print nDependent
+	
 
 	for dependent in range(nDependent):
 		xEqn = xPrime[dependent]  #Get the eqn for each dependent variable
@@ -117,8 +117,6 @@ def rk4Notime(xPrime, xPara, h):
 		xK2 = xK1 + ((k1*h)/2)
 		tk2 = tk1 + (h/2)
 
-		#print xK2
-		#print tk2
 		k2 = xEqn([xK2, tk2])
 		
 		xK3 = xK1 + ((k2*h)/2)
@@ -131,16 +129,21 @@ def rk4Notime(xPrime, xPara, h):
 
 		slope = (k1 + 2*k2 + 2*k3 + k4)/6		
 		
-		#print [k1,k2,k3,k4]
-		
 		
 		slopeList.append(slope)
-	#print slopeList
 	
 	return slopeList	
 
 
+
+'''@param: xPrime is a list of functions for the xPrime equations
+   @param: xPara is a list of lists of inputs  to the xPrime functions
+   @param: h is the step size, should be floating point
+   @return: returns a list of the values of the slope using RK34
+   			method with time adaptation
+'''	
 	
+def rk4WithTime(xPrime, xPara, h):
 
 
 
