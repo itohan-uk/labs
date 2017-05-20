@@ -118,12 +118,16 @@ for val in xList:
 	for x in range(numParameters):
 		resultList[x].append(val[x])
 
-
-if choiceBit == 1:
+print "choice %d" %choiceBit
+if (choiceBit == 1 or choiceBit == 3):
 	timeList = np.arange(0.0,timeStop,h)
+	print "Please close the graph after viewing to proceed with the program"
 	plotter(timeList, resultList[0], resultList[1], "uuu")		
 
 
+if (choiceBit == 2 or choiceBit == 3):
+	for i in range(numParameters):
+		print("parameter %d results: %s \n"%(i, map(str, resultList[i])))
 
 
 # v1List = []
@@ -135,6 +139,4 @@ if choiceBit == 1:
 # 	v2List.append(val[1])
 	
 
-# plotter(timeList1, v1List, v2List, "uuu")	
-
-
+# plotter(timeList1, v1List, v2List, "uuu")
