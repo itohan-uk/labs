@@ -99,9 +99,32 @@ first value is the higher value and the second value is lower\n")
 else:
 	tol1 = 1e-1
 	tol2 = 1e-3
-#======================= USE THE ODE SOLVER ==========================
+#=============================== USE THE ODE SOLVER ============================
 xList = l5.odeSolver(odeMethod, xEqn, xParaInitial, t0, h, tol1, tol2 ,
  adaptBit , timeStop)
+
+
+#================================ DISPLAY OPTIONS ===============================
+choiceBit = int(raw_input("Enter a number to select the way results should be\
+ displayed\n 1: Display Graph\n 2: Display values\n 3: Display both graph and\
+ results\n"))
+
+resultList = []
+for x in range(numParameters):
+	idxList = []
+	resultList.append(idxList)
+
+for val in xList:
+	for x in range(numParameters):
+		resultList[x].append(val[x])
+
+
+if choiceBit == 1:
+	timeList = np.arange(0.0,timeStop,h)
+	plotter(timeList, resultList[0], resultList[1], "uuu")		
+
+
+
 
 # v1List = []
 # v2List = []
