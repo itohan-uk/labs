@@ -11,6 +11,17 @@ import numpy as np
 import time
 
 
+def plotter(timeList, v1List, v2List, title):
+	plt.figure(title)
+	plt.xlabel("time")
+	plt.ylabel("voltage")
+
+	plt.plot(timeList, v1List, label = 'V1(t)')
+	plt.plot(timeList, v2List, label = 'V2(t)')
+
+	plt.legend()
+	plt.show()
+
 
 ode = raw_input("Please select an ode method\
  you want to use: fEuler, tEuler, bEuler, rk4 \n")
@@ -67,7 +78,7 @@ initial = raw_input("Please enter each %d Initial parameters seperated by\
 initialString = initial.split(' ')
 xParaInitial = map(int, initialString)
 
-#======================== GET THE TIME PARAMETERS =============================
+#======================== GET THE TIM E PARAMETERS =============================
 timeParameters = raw_input("Please enter the time start, time step and \
  time stop seperated by a space\n")	
 
@@ -92,15 +103,15 @@ else:
 xList = l5.odeSolver(odeMethod, xEqn, xParaInitial, t0, h, tol1, tol2 ,
  adaptBit , timeStop)
 
-v1List = []
-v2List = []
-timeList1 = np.arange(0.0,timeStop,h)
+# v1List = []
+# v2List = []
+# timeList1 = np.arange(0.0,timeStop,h)
 
-for val in xList:
-	v1List.append(val[0])
-	v2List.append(val[1])
+# for val in xList:
+# 	v1List.append(val[0])
+# 	v2List.append(val[1])
 	
 
-plotter(timeList1, v1List, v2List, "uuu")	
+# plotter(timeList1, v1List, v2List, "uuu")	
 
 
