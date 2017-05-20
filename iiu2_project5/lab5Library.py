@@ -15,13 +15,17 @@ import matplotlib.pyplot as plt
 ##################################################################
 # 				  FUNCTION TP PLOT GRAPH				         #
 ##################################################################
-def plotter(timeList, numParameters, resultList):
+def plotter(timeList, numParameters, resultList, cicuitType):
 	plt.figure("Circuit Graphs")
 	plt.xlabel("time")
-	plt.ylabel("voltage")
+	plt.ylabel("parameter")
 
 	for i in range(numParameters):
-		plt.plot(timeList, resultList[i], label = 'V%d(t)' %(i + 1))
+		if (cicuitType == 'rlcParallel') and i == 2:
+			plt.plot(timeList, resultList[i], label = 'il(t)')
+
+		else:
+			plt.plot(timeList, resultList[i], label = 'V%d(t)' %(i + 1))
 
 	plt.legend()
 	plt.show()

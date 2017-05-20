@@ -46,7 +46,7 @@ elif circuitNo == '2':
 
 elif circuitNo == '3':
 	circuitType = 'rlcParallel'
-	numParameters = 2
+	numParameters = 3
 
 elif circuitNo == '4':
 	circuitType = "bridgeRectifier"
@@ -99,9 +99,12 @@ else:
 
 
 #=============================== USE THE ODE SOLVER ============================
+timeStart = time.clock()
 xList = l5.odeSolver(odeMethod, xEqn, xParaInitial, t0, h, tol1, tol2 ,
  adaptBit , timeStop)
 
+#Calculate simulation time
+simulationTime = time.clock() - timeStart
 
 #================================ DISPLAY OPTIONS ===============================
 choiceBit = int(raw_input("Enter a number to select the way results should be\
@@ -117,11 +120,10 @@ for val in xList:
 	for x in range(numParameters):
 		resultList[x].append(val[x])
 
-print "choice %d" %choiceBit
 if (choiceBit == 1 or choiceBit == 3):
 	timeList = np.arange(0.0,timeStop,h)
 	print "Please close the graph after viewing to proceed with the program"
-	l5.plotter(timeList, numParameters, resultList)	
+	l5.plotter(timeList, numParameters, resultList, circuitType)	
 
 
 if (choiceBit == 2 or choiceBit == 3):
@@ -129,3 +131,4 @@ if (choiceBit == 2 or choiceBit == 3):
 		print("parameter %d results: %s \n"%(i, map(str, resultList[i])))
 
 
+print("Total simulation time: %f" %simulationTime)
