@@ -8,9 +8,23 @@
 import numpy as np
 from operator import add
 from numpy import linalg as la
+import matplotlib.pyplot as plt
 
 
 
+##################################################################
+# 				  FUNCTION TP PLOT GRAPH				         #
+##################################################################
+def plotter(timeList, numParameters, resultList):
+	plt.figure("Circuit Graphs")
+	plt.xlabel("time")
+	plt.ylabel("voltage")
+
+	for i in range(numParameters):
+		plt.plot(timeList, resultList[i], label = 'V%d(t)' %(i + 1))
+
+	plt.legend()
+	plt.show()
 
 
 ##################################################################

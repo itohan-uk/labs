@@ -12,19 +12,10 @@ import time
 
 
 
-def plotter(timeList, numParameters, resultList):
-	plt.figure("Circuit Graphs")
-	plt.xlabel("time")
-	plt.ylabel("voltage")
-
-	for i in range(numParameters):
-		plt.plot(timeList, resultList[i], label = 'V%d(t)' %(i + 1))
-
-	plt.legend()
-	plt.show()
 
 
 
+#======================== INPUT AN ODE METHOD ============================
 ode = raw_input("Please select an ode method\
  you want to use: fEuler, tEuler, bEuler, rk4 \n")
 
@@ -130,7 +121,7 @@ print "choice %d" %choiceBit
 if (choiceBit == 1 or choiceBit == 3):
 	timeList = np.arange(0.0,timeStop,h)
 	print "Please close the graph after viewing to proceed with the program"
-	plotter(timeList, numParameters, resultList)	
+	l5.plotter(timeList, numParameters, resultList)	
 
 
 if (choiceBit == 2 or choiceBit == 3):
