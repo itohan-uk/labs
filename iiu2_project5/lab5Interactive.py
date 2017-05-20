@@ -17,7 +17,7 @@ import time
 
 #======================== INPUT AN ODE METHOD ============================
 ode = raw_input("Please select an ode method\
- you want to use: fEuler, tEuler, bEuler, rk4 \n")
+ you want to use: fEuler, tEuler, bEuler, rk4 \n> ")
 
 
 if ode == "rk4":
@@ -34,7 +34,7 @@ simulate:\n \
 	3: rlcParallel\n \
 	4: bridgeRectifier\n \
 	5: pumpCircuit\n \
-	")
+> ")
 
 if circuitNo == '1':
 	circuitType = "circuitOde"
@@ -76,7 +76,7 @@ xParaInitial = map(int, initialString)
 #======================== GET THE TIME PARAMETERS =============================
 
 timeParameters = raw_input("Please enter the time start, time step and \
- time stop seperated by a space\n")	
+ time stop seperated by a space\n> ")	
 
 timeListString = timeParameters.split(' ')
 t0 = float(timeListString[0])
@@ -87,7 +87,8 @@ timeStop = float(timeListString[2])
 #======================== SET THE TOLERANCE VALUES ============================
 if adaptBit:
 	tolerances = raw_input("Please enter the tolerances seperated by a space\
-first value is the higher value and the second value is lower\n")
+first value is the higher value and the second value is lower\
+suggested Values: tol1: 1e-1, tol2: 1e-3\n> ")
 
 	tolList = tolerances.split(" ")
 	tol1 = float(tolList[0])
@@ -109,7 +110,7 @@ simulationTime = time.clock() - timeStart
 #================================ DISPLAY OPTIONS ===============================
 choiceBit = int(raw_input("Enter a number to select the way results should be\
  displayed\n 1: Display Graph\n 2: Display values\n 3: Display both graph and\
- results\n"))
+ results\n> "))
 
 resultList = []
 for x in range(numParameters):

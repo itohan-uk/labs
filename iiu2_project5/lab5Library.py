@@ -169,7 +169,6 @@ def rlcParallel(initialVal, t0):
 	V1 = initialVal[0]
 	V2 = initialVal[1]
 	iL = initialVal[2]
-	m = (0.1e-3)/(1e-9)
 	R1 = R2 =  10.0e3
 	C1 = C2 = 1e-12
 	L1 =  1e-6
