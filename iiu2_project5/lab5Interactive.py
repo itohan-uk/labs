@@ -21,7 +21,7 @@ ode = raw_input("Please select an ode method\
 
 
 if ode == "rk4":
-	adaptBit = int(raw_input("Please enter the adaptBit\n"))
+	adaptBit = int(raw_input("Please enter the adaptBit\n> "))
 else:
 	adaptBit = 0	
 stringOdeMethod = "l5.%s" %ode
@@ -67,7 +67,7 @@ xEqn = eval(stringCircuit)
 
 #======================== GET THE INITIAL PARAMETERS =========================
 
-initial = raw_input("Please enter each %d Initial parameters seperated by\
+initial = raw_input("Please enter %d Initial parameters seperate each one by\
  a space\n" %numParameters) 
 initialString = initial.split(' ')
 xParaInitial = map(int, initialString)
@@ -99,7 +99,7 @@ else:
 	tol2 = 1e-3
 
 
-#=============================== USE THE ODE SOLVER ============================
+#=============================== USE THE ODE SOLVER ===========================
 timeStart = time.clock()
 xList = l5.odeSolver(odeMethod, xEqn, xParaInitial, t0, h, tol1, tol2 ,
  adaptBit , timeStop)
@@ -107,7 +107,7 @@ xList = l5.odeSolver(odeMethod, xEqn, xParaInitial, t0, h, tol1, tol2 ,
 #Calculate simulation time
 simulationTime = time.clock() - timeStart
 
-#================================ DISPLAY OPTIONS ===============================
+#============================== DISPLAY OPTIONS ===============================
 choiceBit = int(raw_input("Enter a number to select the way results should be\
  displayed\n 1: Display Graph\n 2: Display values\n 3: Display both graph and\
  results\n> "))
@@ -132,4 +132,4 @@ if (choiceBit == 2 or choiceBit == 3):
 		print("parameter %d results: %s \n"%(i, map(str, resultList[i])))
 
 
-print("Total simulation time: %f" %simulationTime)
+print("Total simulation time: %f seconds" %simulationTime)

@@ -266,9 +266,6 @@ def pumpCircuit(initialVal, t0):
 	V2 = initialVal[1]
 	V3 = initialVal[2]
 
-	#V1 = Vgb = initialVal[0]
-	#V2 = Vdb = initialVal[1]
-
 	R1 = 1.0e3
 	C1 = C2 = 5e-12
 	C3 = C4 = 1e-12
